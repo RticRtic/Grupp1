@@ -5,11 +5,11 @@ using MongoDB.Bson;
 
 namespace Grupp1.Services;
 
-public class MongoDBService {
+public class MovieDBService {
 
     public  readonly IMongoCollection<Movie> _movielistCollection;
 
-    public MongoDBService(IOptions<MongoDBSettings> mongoDBSettings) {
+    public MovieDBService(IOptions<MongoDBSettings> mongoDBSettings) {
         MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);
         IMongoDatabase database = client.GetDatabase(mongoDBSettings.Value.DatabaseName);
         _movielistCollection = database.GetCollection<Movie>(mongoDBSettings.Value.CollectionName);

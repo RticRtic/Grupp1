@@ -16,18 +16,18 @@ public class Movie {
     public string plot { get; set; } = null!;
     public List<string> genres { get; set; } = null!;
     public int runtime { get; set; } = 0!;
-    public CustomClasses.Cast Cast { get; set; } = null!;
+    public CustomClassesMovie.Cast Cast { get; set; } = null!;
     public int num_mflix_comments { get; set; } = 0!;
     public string title { get; set; } = null!;
     public string fullplot { get; set; } = null!;
     public List<string> countries { get; set; } = null!;
-    public CustomClasses.Released? Released { get; set; }
+    public CustomClassesMovie.Released? Released { get; set; }
     public List<string> directors { get; set; } = null!;
     public string rated { get; set; } = null!;
-    public CustomClasses.Award Award {get; set;}
-    public CustomClasses.LastUpdated Lastupdated { get; set; } = null!;
+    public CustomClassesMovie.Award Award {get; set;}
+    public CustomClassesMovie.LastUpdated Lastupdated { get; set; } = null!;
     public dynamic year { get; set; } = 0!;
-    public CustomClasses.Imdb Imdb {get; set;} = null!;
+    public CustomClassesMovie.Imdb Imdb {get; set;} = null!;
     public string type { get; set; } = null!;
     public object tomatoes {get; set;} = null!;
     public string poster { get; set; } = null!;
@@ -47,13 +47,13 @@ public class Movie {
         this.title = title;
         this.fullplot = fullplot;
         this.countries = countries;
-        this.Released = (CustomClasses.Released)released;
+        this.Released = (CustomClassesMovie.Released)released;
         this.directors = directors;
         this.rated = rated;
-        this.Award = (CustomClasses.Award)award;
-        this.Lastupdated = (CustomClasses.LastUpdated)lastupdated;
+        this.Award = (CustomClassesMovie.Award)award;
+        this.Lastupdated = (CustomClassesMovie.LastUpdated)lastupdated;
         this.year = year;
-        this.Imdb = (CustomClasses.Imdb)imdb;
+        this.Imdb = (CustomClassesMovie.Imdb)imdb;
         this.type = type;
         this.tomatoes = tomatoes;
         this.poster = poster;

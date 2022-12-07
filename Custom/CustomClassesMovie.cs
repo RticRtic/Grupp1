@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Grupp1.Models;
 
-public class CustomClasses {
+public class CustomClassesMovie {
  
 public class Imdb {
 
@@ -37,6 +37,7 @@ public class Award {
     [JsonPropertyName("text")]
 
     public string Text { get; set; }
+   
 }
 
 public class LastUpdated {
@@ -64,9 +65,7 @@ public class Released {
 }
 
 public class Cast {
-    [BsonElement("0:")]
-    [JsonPropertyName("0:")]
-    public Array CastNames { get; set; }
+    public List<string>? Janne { get; set; }
 
         public static implicit operator Cast(List<string> v)
         {
@@ -74,22 +73,4 @@ public class Cast {
         }
     }
 
-// public class Cast<List> {
-//     private List[] castData;
-//     private int capacity;
-//     private int size = 0;
-//     public Cast(int initCapacity) {
-//         if (initCapacity < 1) initCapacity = 1;
-//         this.capacity = initCapacity;
-//     }
-
-//     public int Size { get { return size; } }
-//     public bool isEmpty { get { return size == 0; } }
-
-//         public static implicit operator Cast<List>(List<string> v)
-//         {
-//             throw new NotImplementedException();
-//         }
-//     }
-    
 }

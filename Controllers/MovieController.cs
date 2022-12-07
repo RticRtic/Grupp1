@@ -10,9 +10,9 @@ namespace WebApi.Controllers;
 [Produces("application/json")]
 public class MovieController: Controller {
     
-    private readonly MongoDBService _mongoDBService;
+    private readonly MovieDBService _mongoDBService;
 
-    public MovieController(MongoDBService mongoDBService) {
+    public MovieController(MovieDBService mongoDBService) {
         _mongoDBService = mongoDBService;
     }
 
