@@ -8,6 +8,7 @@ namespace Grupp1.Controllers;
 
 [Controller]
 [Route("api/[controller]")]
+[Produces("application/json")]
 
 public class RestaurantController: Controller {
 
@@ -36,6 +37,7 @@ public class RestaurantController: Controller {
     ///         12.12313, 12.13542
     ///       ],
     ///       "street": "Drottninggatan"
+    ///      "zipcode": "11163"
     ///     },   
     ///     "borough": "T-centralen",
     ///     "cuisine": "Mexican",
@@ -46,7 +48,8 @@ public class RestaurantController: Controller {
     ///         "score": 10
     ///      }
     ///     ],
-    ///     "name": "Taco Bar"
+    ///     "name": "Taco Bar",
+    ///     "restaurant_id": "4532"
     ///   }
     ///
     /// </remarks>
