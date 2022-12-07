@@ -23,6 +23,37 @@ public class RestaurantController: Controller {
         return await _restaurantDBService.GetAsync();
     }
 
+        ///<summary>Creates a new RestaurantItem.</summary>
+    ///<remarks>
+    /// Sample request:
+    ///
+    ///     POST /Todo
+    ///    {
+    ///     "id": "111414",
+    ///     "address": {
+    ///       "building": "321",
+    ///       "coord": [
+    ///         12.12313, 12.13542
+    ///       ],
+    ///       "street": "Drottninggatan"
+    ///     },   
+    ///     "borough": "T-centralen",
+    ///     "cuisine": "Mexican",
+    ///     "grades": [
+    ///       {
+    ///         "date": "2022-12-07T13:34:48.486Z",
+    ///         "grade": "56",
+    ///         "score": 10
+    ///      }
+    ///     ],
+    ///     "name": "Taco Bar"
+    ///   }
+    ///
+    /// </remarks>
+    /// <response code = "201"> Returns the newly created item</response>
+    /// <response code = "400"> The item is null</response>
+    
+
     [HttpPost]
     public async Task<IActionResult>
     Post([FromBody] Restaurant restaurant) {
@@ -31,7 +62,10 @@ public class RestaurantController: Controller {
         return CreatedAtAction(nameof(Get), new {
             id = restaurant.Id 
         }, restaurant);
+
     }
+    ///<summary> Update an RestaurantItem.</summary>
+
 
     [HttpPut("{id}")]
     public async Task<IActionResult>
@@ -42,8 +76,10 @@ public class RestaurantController: Controller {
 
         return NoContent();
     }
+    ///<summary>Deletes a Soecific RestaurantItem.</summary>
 
-    [HttpDelete("{id}")]
+
+     [HttpDelete("{id}")]
     public async Task<IActionResult>
     Delete(string id) {
 
