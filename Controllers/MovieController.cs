@@ -24,7 +24,7 @@ public class MovieController: Controller {
     ///<remarks>
     /// Sample request:
     ///
-    ///     POST /Todo
+    ///     POST /Movie
     ///     {
     ///        "id": 1,
     ///        "plot": "Janne is running in the forest and then finds something...",
@@ -34,7 +34,7 @@ public class MovieController: Controller {
     ///         ],
     ///        "runtime": 0,
     ///        "cast": [
-    ///             "string"
+    ///             "Batman"
     ///         ],    
     ///     }
     ///

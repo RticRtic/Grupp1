@@ -9,7 +9,7 @@ public class MovieDBService {
 
     public  readonly IMongoCollection<Movie> _movielistCollection;
 
-    public MovieDBService(IOptions<MongoDBSettings> mongoDBSettings) {
+    public MovieDBService(IOptions<MongoDBSettingsMovie> mongoDBSettings) {
         MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);
         IMongoDatabase database = client.GetDatabase(mongoDBSettings.Value.DatabaseName);
         _movielistCollection = database.GetCollection<Movie>(mongoDBSettings.Value.CollectionName);

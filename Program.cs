@@ -6,7 +6,7 @@ using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection("MongoDB"));
+builder.Services.Configure<MongoDBSettingsMovie>(builder.Configuration.GetSection("SampleMflixDb"));
 builder.Services.AddSingleton<MovieDBService>();
 
 // Add services to the container.
@@ -15,16 +15,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
-
 builder.Services.AddSwaggerGen(options => {
         options.SwaggerDoc("v1", new OpenApiInfo {
             Version = "v1",
-            Title = "Movie API",
+            Title = "Grupp1 API",
             Description = "An ASP.NET Core Web API for managing Movies",
-            TermsOfService = new Uri("https://ecample.com/terms"),
+            TermsOfService = new Uri("https://example.com/terms"),
             Contact = new OpenApiContact {
-                Name = "Janne Janneson",
+                Name = "Grupp1",
                 Url = new Uri("https://example.com/contact"),
 
             },
@@ -50,6 +48,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger(options => {
         options.SerializeAsV2 = true;
+
     });
     app.UseSwaggerUI(options => {
         options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
@@ -59,10 +58,11 @@ if (app.Environment.IsDevelopment())
     
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
 
 app.Run();
+
