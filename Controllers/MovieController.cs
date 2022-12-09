@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Grupp1.Services;
 using Grupp1.Models;
 
-namespace WebApi.Controllers; 
+namespace Grupp1.Controllers; 
 
 [Controller]
 [Route("api/[controller]")]

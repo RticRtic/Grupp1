@@ -8,10 +8,12 @@ public class Released {
     [BsonElement("released")]
     [JsonPropertyName("released")]
 
-    public DateTime? DateTime { get; set; }
+    public DateTime? released { get; set; }
 
     public static implicit operator Released(DateTime v)
     {
         throw new NotImplementedException();
     }
 }
+
+

@@ -8,15 +8,15 @@ public class Imdb {
 
     [BsonElement("rating")]
     [JsonPropertyName("rating")]
-    public int? Rating { get; set; }
+    public double? Rating { get; set; }
 
     [BsonElement("votes")]
     [JsonPropertyName("votes")]
 
-    public double? Votes { get; set; }
+    public int? Votes { get; set; }
 
     [BsonElement("id")]
     [JsonPropertyName("id")]
 
-    public int? Id { get; set; }
+    public int? IdOfMovie { get; set; }
 }

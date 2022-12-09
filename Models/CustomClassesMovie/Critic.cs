@@ -3,7 +3,8 @@ using System.Text.Json.Serialization;
 
 namespace Grupp1.Models;
 
-public class Viewer {
+public class Critic {
+
     [BsonElement("rating")]
     [JsonPropertyName("rating")]
     public double? Rating { get; set; }

@@ -22,17 +22,16 @@ public class Movie {
     public string title { get; set; } = null!;
     public string fullplot { get; set; } = null!;
     public List<string> countries { get; set; } = null!;
-    public Released? Released { get; set; }
+    public DateTime? released { get; set; } = null!;
     public List<string> directors { get; set; } = null!;
     public string rated { get; set; } = null!;
-    public Award Award {get; set;}
-    public LastUpdated Lastupdated { get; set; } = null!;
+    public Award? awards {get; set;}
+    public string? lastupdated { get; set; } = null!;
     public dynamic year { get; set; } = 0!;
-    public Imdb Imdb {get; set;} = null!;
+    public Imdb imdb {get; set;} = null!;
     public string type { get; set; } = null!;
-    public Tomatoes Tomatoes {get; set;} = null!;
-
-  
+    public Tomatoes tomatoes {get; set;} = null!;
+    public Viewer viewer { get; set; } = null!;
     public string poster { get; set; } = null!;
     public List<string> languages { get; set; } = null!;
     public List<string> writers { get; set; } = null!;
@@ -49,13 +48,13 @@ public class Movie {
     DateTime released,
     List<String> directors,
     string rated,
-    object award,
-    DateTime lastupdated,
+    object awards,
+    string lastupdated,
     dynamic year,
     object imdb,
     string type,
     object tomatoes,
-    object viewer, 
+    object viewer,
     string poster, 
     List<String> languages, 
     List<String> writers, 
@@ -69,16 +68,16 @@ public class Movie {
         this.title = title;
         this.fullplot = fullplot;
         this.countries = countries;
-        this.Released = released;
+        this.released = released;
         this.directors = directors;
         this.rated = rated;
-        this.Award = (Award?)award;
-        this.Lastupdated = lastupdated;
+        this.awards = (Award?)awards;
+        this.lastupdated = lastupdated;
         this.year = year;
-        this.Imdb = (Imdb)imdb;
+        this.imdb = (Imdb)imdb;
         this.type = type;
-        this.Tomatoes = (Tomatoes)tomatoes;
-        // this.Viewer = (CustomClassesMovie.TomatoesObject.ViewerObject)viewer;
+        this.tomatoes = (Tomatoes)tomatoes;
+        this.viewer = (Viewer)viewer;
         this.poster = poster;
         this.languages = languages;
         this.writers = writers;
