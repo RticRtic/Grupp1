@@ -64,11 +64,11 @@ public class Movie {
 
     [BsonElement("lastupdated")]
     [JsonPropertyName("lastupdated")]
-    public string? Lastupdated { get; set; } = null!;
+    public DateTime Lastupdated { get; set; }
 
     [BsonElement("year")]
     [JsonPropertyName("year")]
-    public dynamic Year { get; set; } = 0!;
+    public int? Year { get; set; }
 
     [BsonElement("imdb")]
     [JsonPropertyName("imdb")]
@@ -82,9 +82,9 @@ public class Movie {
     [JsonPropertyName("tomatoes")]
     public Tomatoes Tomatoes {get; set;} = null!;
 
-    [BsonElement("viewer")]
-    [JsonPropertyName("viewer")]
-    public Viewer Viewer { get; set; } = null!;
+    // [BsonElement("viewer")]
+    // [JsonPropertyName("viewer")]
+    // public Viewer Viewer { get; set; } = null!;
 
     [BsonElement("poster")]
     [JsonPropertyName("poster")]
@@ -104,7 +104,7 @@ public class Movie {
 
     [BsonElement("critic")]
     [JsonPropertyName("critic")]
-    public object Critic { get; set; } = null!;
+    public Critic? Critic { get; set; } = null!;
 
 
 }
