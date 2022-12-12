@@ -43,20 +43,20 @@ public class MovieController: Controller {
     /// <response code = "400"> The item is null</response>
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] Movie movie) {
-        await _mongoDBService.CreateAsync(movie); return CreatedAtAction(nameof(Get),
+        await _mongoDBService.AddToMovieListAsync(movie); return CreatedAtAction(nameof(Get),
         new {id = movie.Id}, movie);}
 
     ///<summary> Update an MovieItem.</summary>
-    [HttpPut("{id}")]
-    public async Task<IActionResult> AddToPlaylist(string id, [FromBody] string movieId) { 
-        await _mongoDBService.AddToMovielistAsync(id, movieId);
+    [HttpPut("{id:length(24)}")]
+    public async Task<IActionResult> AddToPlaylist(string id ,Movie movie) { 
+        await _mongoDBService.UpdateAsync(id, movie);
         return NoContent();
      }
 
     ///<summary>Deletes a Specifik MovieItem.</summary>
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(string id) {
-        await _mongoDBService.DeleteAsync(id);
+        await _mongoDBService.DeleteMovie(id);
         return NoContent();
     }
 

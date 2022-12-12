@@ -82,10 +82,6 @@ public class Movie {
     [JsonPropertyName("tomatoes")]
     public Tomatoes Tomatoes {get; set;} = null!;
 
-    // [BsonElement("viewer")]
-    // [JsonPropertyName("viewer")]
-    // public Viewer Viewer { get; set; } = null!;
-
     [BsonElement("poster")]
     [JsonPropertyName("poster")]
     public string Poster { get; set; } = null!;
