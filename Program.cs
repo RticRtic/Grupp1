@@ -6,8 +6,12 @@ using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection("MongoDB"));
+
+builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection("SampleMflixDb"));
 builder.Services.AddSingleton<MongoDBService>();
+
+builder.Services.Configure<RestaurantMongoDBSettings>(builder.Configuration.GetSection("SampleRestaurants"));
+builder.Services.AddSingleton<RestaurantDBService>();
 
 // Add services to the container.
 
@@ -59,7 +63,7 @@ if (app.Environment.IsDevelopment())
     
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
