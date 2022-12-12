@@ -15,9 +15,9 @@ public class MovieDBService {
         _movielistCollection = database.GetCollection<Movie>(movieDBSettings.Value.CollectionName);
     }
 
-    public async Task<List<Movie>> GetAsync() { return await _movielistCollection.Find(new BsonDocument()).ToListAsync(); }
+    //public async Task<List<Movie>> GetAsync() { return await _movielistCollection.Find(new BsonDocument()).ToListAsync(); }
 
-    //public async Task<List<Movie>> GetMoviesAsync () => await _movielistCollection.Find(_ => true).ToListAsync();
+    public async Task<List<Movie>> GetMoviesAsync () => await _movielistCollection.Find(_ => true).ToListAsync();
     public async Task CreateAsync(Movie movie) { await _movielistCollection.InsertOneAsync(movie); return; }
     public async Task AddToMovielistAsync(string id, string movieId) {
         FilterDefinition<Movie> filter = Builders<Movie>.Filter.Eq("Id", id);
