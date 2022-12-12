@@ -29,7 +29,7 @@ public class MovieDBService {
 
     // }
 
-    public async Task UpdateAsync(string id, Movie updatedMovie) => await _movielistCollection.ReplaceOneAsync(movieId => movieId.Id == id, updatedMovie);
+    public async Task UpdateAsync(string id, Movie updatedMovie) => await _movielistCollection.ReplaceOneAsync(movie => movie.Id == id, updatedMovie);
 
     // public async Task DeleteAsync(string id) {
     //     FilterDefinition<Movie> filter = Builders<Movie>.Filter.Eq("Id", id);

@@ -10,15 +10,15 @@ namespace Grupp1.Controllers;
 [Produces("application/json")]
 public class MovieController: Controller {
     
-    private readonly MovieDBService _mongoDBService;
+    private readonly MovieDBService _mongoDBServiceMovie;
 
     public MovieController(MovieDBService mongoDBService) {
-        _mongoDBService = mongoDBService;
+        _mongoDBServiceMovie = mongoDBService;
     }
 
     [HttpGet]
     public async Task<List<Movie>> Get() { 
-        return await _mongoDBService.GetAsync(); }
+        return await _mongoDBServiceMovie.GetAsync(); }
 
     ///<summary>Creates a new MovieItem.</summary>
     ///<remarks>
@@ -43,20 +43,27 @@ public class MovieController: Controller {
     /// <response code = "400"> The item is null</response>
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] Movie movie) {
-        await _mongoDBService.AddToMovieListAsync(movie); return CreatedAtAction(nameof(Get),
+        await _mongoDBServiceMovie.AddToMovieListAsync(movie); return CreatedAtAction(nameof(Get),
         new {id = movie.Id}, movie);}
 
     ///<summary> Update an MovieItem.</summary>
-    [HttpPut("{id:length(24)}")]
-    public async Task<IActionResult> AddToPlaylist(string id ,Movie movie) { 
-        await _mongoDBService.UpdateAsync(id, movie);
-        return NoContent();
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update (string id, [FromBody] Movie updatedMovie) { 
+       var movie = await _mongoDBServiceMovie.GetAsync(id);
+       if (movie is null) {
+            return NotFound();
+       }
+       updatedMovie.Id = movie.Id;
+
+       await _mongoDBServiceMovie.UpdateAsync(id, updatedMovie);
+
+       return NoContent();
      }
 
     ///<summary>Deletes a Specifik MovieItem.</summary>
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(string id) {
-        await _mongoDBService.DeleteMovie(id);
+        await _mongoDBServiceMovie.DeleteMovie(id);
         return NoContent();
     }
 

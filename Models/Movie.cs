@@ -11,7 +11,8 @@ public class Movie {
    
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
-    [Required]
+    [BsonElement("id")]
+    [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     [BsonElement("plot")]
