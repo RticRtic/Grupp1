@@ -6,12 +6,12 @@ namespace Grupp1.Models;
 public class Award {
     [BsonElement("wins")]
     [JsonPropertyName("wins")]
-    public int? Wins { get; set; }
+    public int Wins { get; set; }
 
     [BsonElement("nominations")]
     [JsonPropertyName("nominations")]
 
-    public int? Nominations { get; set; }
+    public int Nominations { get; set; }
 
     [BsonElement("text")]
     [JsonPropertyName("text")]

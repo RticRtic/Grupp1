@@ -15,6 +15,5 @@ public class Critic {
 
     [BsonElement("meter")]
     [JsonPropertyName("meter")]
-
     public int? Meter { get; set; }
 }

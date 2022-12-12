@@ -30,5 +30,21 @@ public class Tomatoes {
     [BsonElement("dvd")]
     [JsonPropertyName("dvd")]
     public DateTime? Dvd { get; set; }
+
+    [BsonElement("website")]
+    [JsonPropertyName("website")]
+    public string? Website { get; set; }
+
+    [BsonElement("production")]
+    [JsonPropertyName("production")]
+    public string? Production { get; set; }
+
+    [BsonElement("consensus")]
+    [JsonPropertyName("consensus")]
+    public string? Consensus { get; set; }
+
+    [BsonElement("boxOffice")]
+    [JsonPropertyName("boxOffice")]
+    public string? BoxOffice { get; set; }
     
 }
