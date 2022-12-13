@@ -15,28 +15,10 @@ public class MovieDBService {
         _movielistCollection = database.GetCollection<Movie>(movieDBSettings.Value.CollectionName);
     }
 
-    //public async Task<List<Movie>> GetAsync() { return await _movielistCollection.Find(new BsonDocument()).ToListAsync(); }
-
     public async Task<List<Movie>> GetAsync() => await _movielistCollection.Find(_ => true).ToListAsync();
     public async Task<Movie?> GetAsync(string id) => await _movielistCollection.Find(movieId => movieId.Id == id).FirstOrDefaultAsync();
-    //public async Task CreateAsync(Movie movie) { await _movielistCollection.InsertOneAsync(movie); return; }
-
     public async Task AddToMovieListAsync(Movie newMovie) => await _movielistCollection.InsertOneAsync(newMovie);
-    // public async Task AddToMovielistAsync(string id, string movieId) {
-    //     FilterDefinition<Movie> filter = Builders<Movie>.Filter.Eq("Id", id);
-    //     UpdateDefinition<Movie> update = Builders<Movie>.Update.AddToSet<string>("movieIds", movieId);
-    //     await _movielistCollection.UpdateOneAsync(filter, update);
-
-    // }
-
     public async Task UpdateAsync(string id, Movie updatedMovie) => await _movielistCollection.ReplaceOneAsync(movie => movie.Id == id, updatedMovie);
-
-    // public async Task DeleteAsync(string id) {
-    //     FilterDefinition<Movie> filter = Builders<Movie>.Filter.Eq("Id", id);
-    //     await _movielistCollection.DeleteOneAsync(filter);
-    //     return;
-    //  }
-
     public async Task DeleteMovie(string id) => await _movielistCollection.DeleteManyAsync(movieId => movieId.Id == id);
 
 }

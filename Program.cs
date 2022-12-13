@@ -6,8 +6,12 @@ using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 builder.Services.Configure<MongoDBSettingsMovie>(builder.Configuration.GetSection("SampleMflixDb"));
 builder.Services.AddSingleton<MovieDBService>();
+
+builder.Services.Configure<RestaurantMongoDBSettings>(builder.Configuration.GetSection("SampleRestaurants"));
+builder.Services.AddSingleton<RestaurantDBService>();
 
 // Add services to the container.
 
@@ -18,9 +22,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSwaggerGen(options => {
         options.SwaggerDoc("v1", new OpenApiInfo {
             Version = "v1",
-            Title = "Grupp1 API",
-            Description = "An ASP.NET Core Web API for managing Movies",
-            TermsOfService = new Uri("https://example.com/terms"),
+            Title = "Grupp 1 API",
+            Description = "An ASP.NET Core Web API for managing Movies, Restaurant and sales",
+            TermsOfService = new Uri("https://ecample.com/terms"),
             Contact = new OpenApiContact {
                 Name = "Grupp1",
                 Url = new Uri("https://example.com/contact"),
