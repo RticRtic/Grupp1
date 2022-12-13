@@ -5,14 +5,22 @@ using MongoDB.Bson;
 
 namespace Grupp1.Services;
 
+  public class RestaurantMongoDBSettings {
 
+    public string ConnectionURI { get; set; } = null!;
+    public string DatabaseName { get; set; } = null!;
+    public string CollectionName { get; set; } = null!;
+
+}
 public class RestaurantDBService {
+
+ 
 
     private readonly IMongoCollection<Restaurant> _restaurantListCollection;
 
     public RestaurantDBService(IOptions<RestaurantMongoDBSettings> restaurantDBSettings) {
-        MongoClient client = new MongoClient(restaurantDBSettings.Value.ConnectionURI);
-        IMongoDatabase database = client.GetDatabase(restaurantDBSettings.Value.DatabaseName);
+        MongoClient restaurantClient = new MongoClient(restaurantDBSettings.Value.ConnectionURI);
+        IMongoDatabase database = restaurantClient.GetDatabase(restaurantDBSettings.Value.DatabaseName);
         _restaurantListCollection = database.GetCollection<Restaurant>(restaurantDBSettings.Value.CollectionName);
 
     }
