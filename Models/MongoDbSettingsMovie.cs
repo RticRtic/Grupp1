@@ -1,6 +1,6 @@
 namespace Grupp1.Models;
 
-public class MongoDBSettings {
+public class MongoDBSettingsMovie {
 
     public string ConnectionURI { get; set; } = null!;
     public string DatabaseName { get; set; } = null!;

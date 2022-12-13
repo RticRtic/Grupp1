@@ -10,10 +10,10 @@ public class RestaurantDBService {
 
     private readonly IMongoCollection<Restaurant> _restaurantListCollection;
 
-    public RestaurantDBService(IOptions<MongoDBSettings> mongoDBSettings) {
-        MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);
-        IMongoDatabase database = client.GetDatabase(mongoDBSettings.Value.DatabaseName);
-        _restaurantListCollection = database.GetCollection<Restaurant>(mongoDBSettings.Value.CollectionName);
+    public RestaurantDBService(IOptions<RestaurantMongoDBSettings> restaurantDBSettings) {
+        MongoClient client = new MongoClient(restaurantDBSettings.Value.ConnectionURI);
+        IMongoDatabase database = client.GetDatabase(restaurantDBSettings.Value.DatabaseName);
+        _restaurantListCollection = database.GetCollection<Restaurant>(restaurantDBSettings.Value.CollectionName);
 
     }
 
