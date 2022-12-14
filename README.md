@@ -1,6 +1,8 @@
 # Grupp1
-Jesper Söderling - 
 
-Manne Sahlin : RestaurantController.cs, RestaurantCustomClasses.cs, Restaurant.cs, RestaurantDbService.cs
+Jesper Söderling: MovieController.cs, CustomClassesMovie.cs, MongoDBSettingsMovie.cs, Movie.cs, MovieDbServices.cs, MovieTask - Swagger.
+
+Manne Sahlin:  RestaurantController.cs, CustomClassesRestaurants.cs, Restaurant.cs, RestaurantDbService.cs
+
 
 Henrik Sjögren - 

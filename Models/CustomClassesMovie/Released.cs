@@ -10,10 +10,6 @@ public class Released {
 
     public DateTime? released { get; set; }
 
-    public static implicit operator Released(DateTime v)
-    {
-        throw new NotImplementedException();
-    }
 }
 
 

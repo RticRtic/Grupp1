@@ -6,14 +6,12 @@ using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+// Add services to the container.
 builder.Services.Configure<MongoDBSettingsMovie>(builder.Configuration.GetSection("SampleMflixDb"));
 builder.Services.AddSingleton<MovieDBService>();
 
 builder.Services.Configure<MongoDBSettingsRestaurant>(builder.Configuration.GetSection("SampleRestaurants"));
 builder.Services.AddSingleton<RestaurantDBService>();
-
-// Add services to the container.
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
