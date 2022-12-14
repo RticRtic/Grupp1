@@ -1,8 +1,6 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System.Text.Json.Serialization;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 
 namespace Grupp1.Models;
 
@@ -102,6 +100,10 @@ public class Movie {
     [BsonElement("critic")]
     [JsonPropertyName("critic")]
     public Critic? Critic { get; set; } = null!;
+
+    [BsonElement("is_for_rent")]
+    [JsonPropertyName("is_for_rent")]
+    public IsForRent? IsForRent { get; set; }
 
 
 }

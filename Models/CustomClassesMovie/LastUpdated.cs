@@ -10,8 +10,4 @@ public class LastUpdated {
 
     public DateTime? lastupdated { get; set; }
 
-    public static implicit operator LastUpdated(DateTime v)
-    {
-        throw new NotImplementedException();
-    }
 }
