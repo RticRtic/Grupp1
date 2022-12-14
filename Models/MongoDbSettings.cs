@@ -8,7 +8,7 @@ public class MongoDBSettingsMovie {
 
 }
 
-public class RestaurantMongoDBSettings {
+public class MongoDBSettingsRestaurant {
 
     public string ConnectionURI { get; set; } = null!;
     public string DatabaseName { get; set; } = null!;

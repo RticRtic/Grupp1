@@ -8,19 +8,21 @@ namespace Grupp1.Services;
 
 public class RestaurantDBService {
 
+ 
+
     private readonly IMongoCollection<Restaurant> _restaurantListCollection;
 
-    public RestaurantDBService(IOptions<RestaurantMongoDBSettings> restaurantDBSettings) {
+    public RestaurantDBService(IOptions<MongoDBSettingsRestaurant> restaurantDBSettings) {
         MongoClient client = new MongoClient(restaurantDBSettings.Value.ConnectionURI);
         IMongoDatabase database = client.GetDatabase(restaurantDBSettings.Value.DatabaseName);
         _restaurantListCollection = database.GetCollection<Restaurant>(restaurantDBSettings.Value.CollectionName);
 
     }
 
-    public async Task<List<Restaurant>> GetAsync() {
+    public async Task<List<Restaurant>> GetAsync() => await _restaurantListCollection.Find(_ => true).ToListAsync();
+    
 
-        return await _restaurantListCollection.Find(new BsonDocument()).ToListAsync();
-    }
+
 
     public async Task CreateAsync(Restaurant restaurant) {
         await _restaurantListCollection.InsertOneAsync(restaurant);
