@@ -22,6 +22,7 @@ public class RestaurantDBService {
     public async Task<List<Restaurant>> GetAsync() => await _restaurantListCollection.Find(_ => true).ToListAsync();
     
 
+    public async Task<Restaurant?> GetAsyncId(string id) => await _restaurantListCollection.Find(restaurantId => restaurantId.Id == id).FirstOrDefaultAsync();
 
 
     public async Task CreateAsync(Restaurant restaurant) {
