@@ -15,7 +15,7 @@ public class Restaurant {
     
     [BsonElement("address")]
     [JsonPropertyName("address")]
-    public CustomClassesRestaurant.Address? Address { get; set;}
+    public Address Address { get; set;}
 
     [BsonElement("borough")]
     [JsonPropertyName("borough")]
@@ -27,7 +27,7 @@ public class Restaurant {
 
     [BsonElement("grades")]
     [JsonPropertyName("grades")]
-    public List<CustomClassesRestaurant.GradeList> Grades {get; set;} = null!;
+    public List<GradeList> Grades {get; set;}
 
 
     [BsonElement("name")]

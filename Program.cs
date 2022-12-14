@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<MongoDBSettingsMovie>(builder.Configuration.GetSection("SampleMflixDb"));
 builder.Services.AddSingleton<MovieDBService>();
 
-builder.Services.Configure<RestaurantMongoDBSettings>(builder.Configuration.GetSection("SampleRestaurants"));
+builder.Services.Configure<MongoDBSettingsRestaurant>(builder.Configuration.GetSection("SampleRestaurants"));
 builder.Services.AddSingleton<RestaurantDBService>();
 
 // Add services to the container.
