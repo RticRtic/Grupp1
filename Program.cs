@@ -13,6 +13,9 @@ builder.Services.AddSingleton<MovieDBService>();
 builder.Services.Configure<MongoDBSettingsRestaurant>(builder.Configuration.GetSection("SampleRestaurants"));
 builder.Services.AddSingleton<RestaurantDBService>();
 
+builder.Services.Configure<SuppliesDBSettings>(builder.Configuration.GetSection("SuppliesDB"));
+builder.Services.AddSingleton<TransactionMongoDBService>();
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
