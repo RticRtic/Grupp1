@@ -42,7 +42,7 @@ public class TransactionController: Controller {
     ///     "id": remove this row, it updates automatically.
     ///     "storeLocation": "Stockholm",
     ///     "itemsBought": [
-    ///     "Banana", "Apple", "Onion", "Garlic"
+    ///     "Banana", "Apple", "Onion", "Garlic", "Basil"
     ///     ],
     ///     "usedCoupon": true/false, was a coupon used?
     ///     "customer": {
