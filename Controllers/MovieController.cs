@@ -10,6 +10,7 @@ namespace Grupp1.Controllers;
 [Produces("application/json")]
 public class MovieController: Controller {
     
+    // Uses the mongoDBServiceMovie to run CRUD operations.
     private readonly MovieDBService _mongoDBServiceMovie;
 
     public MovieController(MovieDBService mongoDBService) {
@@ -21,14 +22,18 @@ public class MovieController: Controller {
         return await _mongoDBServiceMovie.GetAsync();
     }
 
+    //! Adding tripple-slash comments to an action/task makes the Swagger UI adding the text to the section header
+    // the <summary></summary> element creates an innertext.
+
     ///<summary>Get an Movie-item with a specifik ID.</summary>
+    // Creates a task in Swagger for this case it ads a GET.
     [HttpGet("GetById")]
     public async Task<Movie?> GetById(string id) {
         var movieItem = await _mongoDBServiceMovie.GetAsyncId(id);
         return movieItem;
     }
 
-    
+    // Add a sample request to be shown in the POST-task i SwaggerUI.
     ///<summary>Creates a new MovieItem.</summary>
     ///<remarks>
     /// Sample request:
@@ -60,14 +65,17 @@ public class MovieController: Controller {
     [HttpPut("Updates is_for_rent")]
     public async Task<IActionResult> IsAvailable(string id, int nrOfCopies, [FromBody]Movie updatedStatus) {
         await _mongoDBServiceMovie.isForRent(nrOfCopies, updatedStatus);
+        // if nrOfCopies is 0 the bool available sets to false, else true
         if (nrOfCopies == 0) {
             updatedStatus.IsForRent!.Available = false;
         } else {
              updatedStatus.IsForRent!.Available = !updatedStatus.IsForRent.Available;
         }
-       
+
+        //Sets the NrOfCopiesAvailable of the value nrOfCopies is given
         updatedStatus.IsForRent!.NrOfCopiesAvailable = nrOfCopies;
 
+        // Updates the movie-item after the task is done with the given id and the new values that coming in.
         await _mongoDBServiceMovie.UpdateAsync(id, updatedStatus);
         
         return NoContent();
@@ -78,6 +86,7 @@ public class MovieController: Controller {
     public async Task<IActionResult> Update (string id, [FromBody]Movie updatedMovie) { 
        var movie = await _mongoDBServiceMovie.GetAsyncId(id);
        if (movie is null) {
+        // If movie is null return NotFound response code 204.
             return NotFound();
        }
        updatedMovie.Id = movie.Id;
@@ -90,6 +99,9 @@ public class MovieController: Controller {
     ///<summary>Deletes a Specifik MovieItem.</summary>
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(string id) {
+        
+        // After the task is done calls the MovieDBService, in this case here, I store it in a variable _mongoDBServiceMovie.
+        // MovieDBService class have a method DeleteMovie witch delete an movie-item with a given id.
         await _mongoDBServiceMovie.DeleteMovie(id);
         return NoContent();
     }

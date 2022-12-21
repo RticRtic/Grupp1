@@ -13,8 +13,11 @@ builder.Services.AddSingleton<MovieDBService>();
 builder.Services.Configure<MongoDBSettingsRestaurant>(builder.Configuration.GetSection("SampleRestaurants"));
 builder.Services.AddSingleton<RestaurantDBService>();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
 builder.Services.AddEndpointsApiExplorer();
+// Adds the Swagger generator to the service cellection
+// Adds informantion such as title, description and licsense to be shown in the SwaggerUI
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSwaggerGen(options => {

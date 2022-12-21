@@ -8,7 +8,10 @@ namespace Grupp1.Models;
 public class Movie {
    
     [BsonId]
+    // Id field is represented as an ObjectId in BSON and _id in MongoDB.
     [BsonRepresentation(BsonType.ObjectId)]
+    // In MongoDB the field will be knows as id and for sending/reciving JSON the field will also be known as id.
+    // But in the app we can name it what we want ex User. But for now I have it as the same.
     [BsonElement("id")]
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -20,7 +23,7 @@ public class Movie {
     [BsonElement("genres")]
     [JsonPropertyName("genres")]
     public List<string> Genres { get; set; } = null!;
-
+    ///<summary>describe the length of the movie in minutes</summary>
     [BsonElement("runtime")]
     [JsonPropertyName("runtime")]
     public int Runtime { get; set; } = 0!;
@@ -47,6 +50,8 @@ public class Movie {
 
     [BsonElement("released")]
     [JsonPropertyName("released")]
+
+    // Creates a DateTimeStamp object of the present time.
     public DateTime Released { get; set; } 
 
     [BsonElement("directors")]
@@ -59,6 +64,8 @@ public class Movie {
 
     [BsonElement("awards")]
     [JsonPropertyName("awards")]
+
+    // Creates an AwardObject of Custom type class. See CustomClassesMovie for more info.
     public Award? Award {get; set;}
 
     [BsonElement("lastupdated")]

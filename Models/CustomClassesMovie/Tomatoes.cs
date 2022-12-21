@@ -6,6 +6,8 @@ namespace Grupp1.Models;
 
 public class Tomatoes {
 
+    // A big Custom type class with nested objects.
+
     [BsonElement("viewer")]
     [JsonPropertyName("viewer")]
     public Viewer Viewer { get; set; }
@@ -21,6 +23,8 @@ public class Tomatoes {
 
     [BsonElement("critic")]
     [JsonPropertyName("critic")]
+
+    // The Tomatoes class takes the Crictic object and many more, see the custom type class for further info.
     public Critic Critic { get; set; }
 
     [BsonElement("rotten")]
